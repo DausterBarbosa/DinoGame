@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.gameContainer {
+    background: red;
+    width: 90%;
+    height: 400px;
+    position: relative;
+}
+
+.dino {
+    background-color: green;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+}

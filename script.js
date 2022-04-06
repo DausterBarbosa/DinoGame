@@ -1,8 +1,29 @@
 const dino = document.querySelector(".dino");
+const gameContainer = document.querySelector(".gameContainer");
 
 var dinoPosition = 0;
+var obstaclePosition = 0;
 
 var dinoJumping = false;
+
+function createObstacle(){
+    const obstacle = document.createElement("div");
+    obstacle.classList.add("obstacle");
+    gameContainer.appendChild(obstacle);
+
+    const obstacleInterval = setInterval(() => {
+        if(obstaclePosition === 1100){
+            clearInterval(obstacleInterval);
+            gameContainer.removeChild(obstacle);
+            obstaclePosition = 0;
+        } else {
+            obstaclePosition += 10;
+            obstacle.style.right = obstaclePosition + "px";
+        }
+    }, 20);
+
+    setTimeout(createObstacle, 5000);
+}
 
 function dinoJump(event){
     if(event.keyCode === 32 && dinoJumping === false){
@@ -33,3 +54,4 @@ function dinoJump(event){
 }
 
 document.addEventListener("keydown", dinoJump);
+createObstacle();
